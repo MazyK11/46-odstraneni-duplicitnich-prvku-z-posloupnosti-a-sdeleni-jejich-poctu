@@ -79,12 +79,12 @@ public class Duplicita {
             System.out.format("%d ",idcislo[i]);
         }
         System.out.print("\n");
-        reversesort(idcislo,posloupnost);
-        
-        System.out.print("\n");
-        for(int i = 0;i<posloupnost.length;i++){
-            System.out.format("%d ",posloupnost[i]);
-        }
+//        reversesort(idcislo,posloupnost);
+//        
+//        System.out.print("\n");
+//        for(int i = 0;i<posloupnost.length;i++){
+//            System.out.format("%d ",posloupnost[i]);
+//        }
         selectsort(idcislo,posloupnost);
         System.out.print("\n");
         for(int i = 0;i<posloupnost.length;i++){
@@ -155,13 +155,13 @@ public class Duplicita {
         }
     }
     public static void reversesort(int p[],int[] id){
-        int max;
+        int min;
         int h = 0;
         for(int j =0;j < p.length;j++){
-            max = p[p.length-1-j];
-            for(int i = p.length-1-j;i >= 0;i--){
-                if(max <= p[i]){
-                   max = p[i];
+            min = p[p.length-1-j];
+            for(int i = p.length-1-j;-1 < i;i--){
+                if(min >= p[i]){
+                   min = p[i];
                    h = i;
                 }
             }
