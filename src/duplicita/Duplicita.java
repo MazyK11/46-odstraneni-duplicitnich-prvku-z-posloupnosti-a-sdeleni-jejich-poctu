@@ -24,6 +24,8 @@ public class Duplicita {
         int[] id = new int [p.length];
         rnd(k,p,id);
 //      výpis pole pro vizuální kontrolu u malé posloupnosti
+//        int p [] ={7,9,9,2,5,2,9,9,2,6};
+//        int id[] = {0,1,2,3,4,5,6,7,8,9};
         System.out.print("Posloupnost\n");        
         for(int i = 0;i<p.length;i++){
             System.out.format("%d ",p[i]);
@@ -47,16 +49,16 @@ public class Duplicita {
         
         selectsort(p,id);
         
-        System.out.print("\n");
-        System.out.print("ID setříděné\n");
-        for(int i = 0;i<id.length;i++){
-            System.out.format("%d ",id[i]);
-        }
-        System.out.print("\n");
-        System.out.print("Posloupnost setříděná\n");
-        for(int i = 0;i<p.length;i++){
-            System.out.format("%d ",p[i]);
-        }
+//        System.out.print("\n");
+//        System.out.print("ID setříděné\n");
+//        for(int i = 0;i<id.length;i++){
+//            System.out.format("%d ",id[i]);
+//        }
+//        System.out.print("\n");
+//        System.out.print("Posloupnost setříděná\n");
+//        for(int i = 0;i<p.length;i++){
+//            System.out.format("%d ",p[i]);
+//        }
         
         int pp [] = new int [p.length];
         int[] idid = new int [id.length];
@@ -66,17 +68,17 @@ public class Duplicita {
         int posloupnost[] = new int [p.length-count];
         int idcislo[] = new int [id.length-count];
         
-        System.out.print("\n");
-        System.out.print("Posloupnost bez double\n");
+//        System.out.print("\n");
+//        System.out.print("Posloupnost bez double\n");
         for(int i = 0;i<posloupnost.length;i++){
             posloupnost[i] = pp[i];
-            System.out.format("%d ",posloupnost[i]);
+//            System.out.format("%d ",posloupnost[i]);
         }
-        System.out.print("\n");
-        System.out.print("ID duplicity\n");
+//        System.out.print("\n");
+//        System.out.print("ID duplicity\n");
         for(int i = 0;i<idcislo.length;i++){
             idcislo[i] = idid[i];
-            System.out.format("%d ",idcislo[i]);
+//            System.out.format("%d ",idcislo[i]);
         }
         System.out.print("\n");
 //        reversesort(idcislo,posloupnost);
@@ -121,6 +123,9 @@ public class Duplicita {
             for(int i = 1+j;i < p.length;i++){
                 if(p[j] == p[i]){
                     count++;
+                    if(i == p.length-1){
+                        j=p.length;
+                    }
                 }
                 else{
                     pp[k] = p[i];
@@ -143,10 +148,18 @@ public class Duplicita {
         int h = 0;
         for(int j =0;j < p.length;j++){
             min = p[j];
+            h = j;
             for(int i = 0+j;i < p.length;i++){
-                if(min >= p[i]){
+                if(min > p[i]){
                    min = p[i];
                    h = i;
+                }
+                else if (min == p[i]){
+                    if(id[h] > id[i]){
+                        min = p[i];
+                        h = i;
+                    }
+                    
                 }
             }
             int m  = p[j];int n = id[j];
