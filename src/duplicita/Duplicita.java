@@ -19,7 +19,7 @@ public class Duplicita {
      */
     public static void main(String[] args) {
 //      exponent k, pro lehčí manipulaci s velikostí posloupnosti
-        int k = 1;
+        int k = 2;
 //      p - pole pro posloupnost
         int p [] = new int [(int) Math.pow(10,k)];
 //      identifikační pomocné pole 
@@ -36,7 +36,7 @@ public class Duplicita {
         int pp [] = new int [p.length];
         int[] idid = new int [id.length];
         int count = hledaniduplicit(p,pp,idid,id);
-//      pole, do kterých se nahrají zkrácené posloupnosti bez duplicit
+//      pole, do kterých se nahrají zkrácené posloupnosti bez duplicitních čísel
 //      tím zmizí prázdné hodnoty na konci pole
         int posloupnost[] = new int [p.length-count];
         int idcislo[] = new int [id.length-count];
@@ -67,7 +67,7 @@ public class Duplicita {
         Random numbers = new Random();
         for(int i =0;i<Math.pow(10,k);i++){
 //          upravitelný interval čísel pro generování 
-            p[i] = numbers.nextInt(10);
+            p[i] = numbers.nextInt(100);
         }
 //      naplnění pomocného pole
         for(int i = 0;i<id.length;i++){
@@ -114,7 +114,7 @@ public class Duplicita {
     /** Metoda, která seřadí posloupnost pomocí principu select sort
      * @param p - pole posloupnosti
      * @param id - identifikační pomocné pole
-     * setřídí vstupní pole pomocí hledání minima, které následně vymění s 
+     * seřadí vstupní pole pomocí hledání minima, které následně vymění s 
      * prvním prvkem. Při výměně dochází k identické výměně v identifikačním
      * poli.
      */
